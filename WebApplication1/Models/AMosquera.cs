@@ -2,5 +2,7 @@
 {
     public class AMosquera
     {
+        int edad {  get; set; }
+
     }
 }
