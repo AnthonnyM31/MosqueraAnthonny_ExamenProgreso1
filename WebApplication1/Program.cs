@@ -1,4 +1,10 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<CelularContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CelularContext") ?? throw new InvalidOperationException("Connection string 'CelularContext' not found.")));
+builder.Services.AddDbContext<AMosqueraContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AMosqueraContext") ?? throw new InvalidOperationException("Connection string 'AMosqueraContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

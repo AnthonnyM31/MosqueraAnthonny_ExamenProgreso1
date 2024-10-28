@@ -1,0 +1,48 @@
+﻿@model WebApplication1.Models.AMosquera
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>AMosquera</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="numeroFavorito" class="control-label"></label>
+                <input asp-for="numeroFavorito" class="form-control" />
+                <span asp-validation-for="numeroFavorito" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="apodo" class="control-label"></label>
+                <input asp-for="apodo" class="form-control" />
+                <span asp-validation-for="apodo" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="genero" /> @Html.DisplayNameFor(model => model.genero)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="fecha" class="control-label"></label>
+                <input asp-for="fecha" class="form-control" />
+                <span asp-validation-for="fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
